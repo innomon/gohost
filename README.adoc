@@ -1,0 +1,8 @@
+= GoHost: a https://github.com/google/starlark-go[Starlark] Web Framework implemented in Go.
+
+
+== Resources
+
+https://github.com/laurentlb/awesome-starlark[starlark projects]
+
+https://github.com/1set/starlet[starlark wrapper]
