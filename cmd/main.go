@@ -20,7 +20,13 @@ func main() {
 	builtins(vm.Globals)
 
 	if len(os.Args) == 1 {
-		err = vm.Exec(context.Background(), "default.star", defaultConfig)
+		cfgFile := os.Getenv("GOHOST_CONFIG")
+		if cfgFile == "" {
+			err = vm.Exec(context.Background(), "default.star", defaultConfig)
+		} else {
+			err = vm.Exec(context.Background(), cfgFile, nil)
+		}
+
 	} else {
 		err = vm.Exec(context.Background(), os.Args[1], nil)
 	}
