@@ -17,7 +17,7 @@ var err error
 
 func main() {
 	vm := &gohost.VmStarlark{Globals: make(starlark.StringDict)}
-	vm.Globals["http"] = nethttp.NewModule()
+	builtins(vm.Globals)
 
 	if len(os.Args) == 1 {
 		err = vm.Exec(context.Background(), "default.star", defaultConfig)
@@ -30,4 +30,12 @@ func main() {
 		fmt.Print("OK")
 	}
 
+}
+
+func builtins(dict starlark.StringDict) {
+	dict["http"] = nethttp.NewModule()
+	// TODO add the modules as needed from  https://github.com/qri-io/starlib
+	// TODO add Args[] as builtin
+	// TODO add the modules as needed from  https://github.com/1set/starlet/blob/master/config.go#L65
+	// TODO print builtins
 }
