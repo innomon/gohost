@@ -8,3 +8,17 @@ https://github.com/laurentlb/awesome-starlark[starlark projects]
 https://github.com/1set/starlet[starlark wrapper]
 
 https://laurent.le-brun.eu/blog/a-practical-introduction-to-the-starlark-language[intro to starlark language]
+
+
+== ONDC
+
+seller adapter service can run behind the firewall: `seller-platform/seller-adapter-service/server.go`
+
+call back action service can also run behind the firewall: `seller-platform/callback-action-service/server.go`
+
+spanner store `shared/clients/transactionclient/transactionclient.go` `StoreTransaction()` needs to be changed.
+
+all the three services call this function.
+
+`StoreTransaction()` called from https://github.com/google/ondc-opencommerce/blob/a1607b729edbb74661e5995ae57601dab66dbb68/seller-platform/callback-action-service/server.go#L329[`storeTransaction()`]
+

@@ -3,6 +3,8 @@ package gohost
 import (
 	"context"
 
+	"gohost/modules/fileops"
+
 	json_s "go.starlark.net/lib/json"
 	math_s "go.starlark.net/lib/math"
 	proto_s "go.starlark.net/lib/proto"
@@ -27,6 +29,7 @@ func init() {
 	starlark.Universe["math"] = math_s.Module
 	starlark.Universe["proto"] = proto_s.Module
 	starlark.Universe["time"] = time_s.Module
+	starlark.Universe["file"] = fileops.Module
 
 }
 
